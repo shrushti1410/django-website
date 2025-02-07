@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empire Export</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+        <nav class="navbar">
+          <div class="logo">
+            <img src="{% static 'css/images/logo.png' %}" alt="Empire export">
+          </div>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+  <section id="home">
+    <div class="hero">
+      <h1>Welcome to Empire Export</h1>
+      <p>Your trusted source for quality.</p>
+      <br>
+      <button onclick="window.location.href='#contact'">Contact Us!</button>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="service-container">
+      <div class="service-card">
+        <i class="fas fa-globe"></i>
+        <h3>Worldwide Shipping</h3>
+        <p>We deliver our services across the globe with high efficiency.</p>
+      </div>
+      <div class="service-card">
+        <h3>Customer Support</h3>
+        <p>Our team is available to support you.</p>
+      </div>
+
+      <div class="service-card">
+        <i class="fas fa-truck"></i>
+        <h3>Fast Delivery</h3>
+        <p>Our logistics ensure quick and safe transportation of goods.</p>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+<section id="about">
+  <div class="about-container">
+      <!-- About Us Heading -->
+      <h2>ABOUT US</h2>
+      
+      <!-- Flex Container for Image and Content -->
+      <div class="about-inner">
+          <!-- About Us Image on the Left -->
+          <div class="about-image">
+              <img src="{% static 'css/images/image2.png' %}" alt="About Us Image">
+          </div>
+          
+          <!-- About Us Content on the Right -->
+          <div class="about-content">
+            <h3>We Make the Strongest Services Sector Above the World</h3>
+              <p>
+                  At <b>Empire Export </b>, we are dedicated to building the most reliable logistics network.
+                  Our mission is to empower communities through seamless transportation and supply chain solutions.
+              </p>
+              <p>We prioritize efficiency, innovation, and customer satisfaction to create a **better-connected world.**</p>
+              <h3>Our Core Services:</h3> <br>
+              <ul>
+                  <li>Comprehensive Goods & Transport Solutions</li>
+                  <li>Rural Transportation Development</li>
+                  <li>Fast & Secure Supply Chain Delivery</li>
+                  <li>Automated Marketing & Logistics Technology</li>
+                  <li>World-Class Expertise & Trusted Service</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</section>
+
+  <!-- Existing sections (like Services, About Us) go here -->
+
+<!-- Contact Us Section -->
+{% load static %}
+<section id="contact">
+  <div class="contact-container">
+      <h2>CONTACT US</h2>
+
+      <div class="contact-inner">
+          <!-- Contact Us Image -->
+          <div class="contact-image">
+              <img src="{% static 'css/images/contact.png' %}" alt="Contact Us Image">
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form">
+              <form id="contactForm" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" id="name" name="name" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="message">Message</label>
+                      <textarea id="message" name="message" rows="4" required></textarea>
+                  </div>
+                  <button type="submit">Submit</button>
+              </form>
+              
+              {% if message %}
+                <div id="thankYouMessage" class="thank-you-message" style="display: none;">
+                    <h3>{{ message }}</h3>
+                </div>
+              {% endif %}
+          </div>
+      </div>
+  </div>
+</section>  
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
+    const thankYouMessage = document.getElementById("thankYouMessage");
+
+    if (thankYouMessage) {
+        setTimeout(function () {
+            thankYouMessage.style.display = "none";
+            form.reset(); // Clear form fields
+        }, 3000);
+    }
+  });
+</script>
+
+<!-- Company Info Section -->
+<section class="company-info">
+  <div class="container">
+      <div class="company-logo">
+          <img src="{% static 'css/images/logo.png' %}" alt="Company Logo">
+          <p>Welcome to Empire Export. Your Gateway to Global Markets. We specialize in exporting high-quality products worldwide, ensuring seamless cross-border trade.</p>
+      </div>
+
+      <div class="company-links">
+          <h3>Quick Links</h3>
+          <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#produt">Our Products</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+          </ul>
+      </div>
+
+      <div class="company-terms">
+          <h3>Terms & Conditions</h3>
+          <ul>
+              <li><a href="#contact">Contact Us</a></li>
+              <li><a href="#privacy">Privacy Policy</a></li>
+              <li><a href="#blog">Our Blog</a></li>
+              <li><a href="#about">About Us</a></li>
+          </ul>
+      </div>
+
+      <div class="company-contact">
+          <h3>Contact</h3>
+          <p>🏢 C-15 madhuram, Industrial Estate, near vishala estate, off Sardar Patel Ring Road, Odhav Industrial Estate, Odhav, Ahmedabad, Kathwada, Gujarat 382415</p>
+          <p>📞 +91 93750 07111</p>
+          <p>📧 contact@empireexport.com</p>
+          <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Empire Export. All rights reserved.</p>
+  </footer>
+</body>
+</html>

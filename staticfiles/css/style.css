@@ -1,0 +1,368 @@
+* {
+  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: Arial, sans-serif;
+}
+
+header {  
+  background-color: #848484;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;  /* Dark background color */
+  padding: 15px 20px;
+  position: fixed;  /* Fixed at the top */
+  top: 0;
+  left: 0;
+  width: 100%;  /* Full width */
+  z-index: 1000;
+}
+
+.logo img {
+  height: 60px;  /* Adjust the height of the logo */
+  padding: 0;
+}
+
+.nav-links {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+} 
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: rgb(23, 48, 60);
+  text-decoration: none;
+  font-weight:bold;
+}
+
+.nav-links li a:hover {
+  color: red;  /* Hover effect for links */
+}
+
+#home {
+  height: 100vh;  /* Make sure it takes full height of the viewport */
+  background-image: url('{% static "css/images/background-image.jpg" %}'); /* Path to your background image */
+  background-size: cover;  /* Make the background image cover the entire section */
+  background-position: center center;
+  position: relative;  /* Center the background image */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: flex-start;
+  align-items: flex-start;  /* Text color for visibility */
+  /* text-align: center; */
+  padding: 20px;
+}
+#home h1, #home p {
+  color: rgb(255, 255, 255);  /* Text color for visibility */
+  margin: 0;     /* Remove default margin */
+}
+
+#home h1 {
+  font-size: 3em;
+}
+
+#home p {
+  font-size: 1.5em;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  text-align:left;  
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  text-align:left;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.hero button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: 2px solid whitesmoke;
+  cursor: pointer;
+}
+
+/* .service-cards {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  width: 30%;
+  text-align: center;
+} */
+
+/* Services Section */
+#services {
+  text-align: center;
+  padding: 80px 20px;
+  background:rgb(23, 48, 60);  /* Modern blue gradient */
+  color: white;  /* Text color contrast */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Title Styling */
+#services h2 {
+  font-size: 2.8em;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Service Container */
+.service-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: rgb(23, 48, 60); /* Match with About Us */
+  margin-top: 0; /* Remove space between About & Services */
+  padding-top: 20px;
+}
+
+/* Individual Service Card */
+.service-card {
+  background: rgba(255, 255, 255, 0.15);  /* Transparent white */
+  padding: 25px;
+  width: 300px;
+  border-radius: 15px;  /* Rounded border */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deep shadow for effect */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Icons inside Service Cards */
+.service-card i {
+  font-size: 45px;
+  color: #ffeb3b;  /* Golden yellow for contrast */
+  margin-bottom: 15px;
+}
+
+/* Service Titles */
+.service-card h3 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* Service Descriptions */
+.service-card p {
+  font-size: 1.1em;
+  color: #f1f1f1;
+}
+
+/* About Us Section */
+#about {
+  background-color: rgb(27,59,73);  /* Light background color */
+  padding: 50px 0;
+}
+
+/* About Container */
+.about-container {
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgb(27,59,73);
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* About Us Heading */
+.about-container h2 {
+  font-size: 2.5em;
+  text-align: center;
+  letter-spacing: 2px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+/* About Inner Section (Image + Content) */
+.about-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* About Us Image */
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-right: 20px;
+}
+
+/* About Us Content */
+.about-content {
+  width: 60%;
+}
+
+.about-content p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #adadad;
+}
+
+.about-content h3 {
+  font-size: 1.5em;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.about-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-content ul li {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  color: #adadad;
+}
+
+.about-content ul li::before {
+  content: "✔";
+  color: #007bff;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+
+#contact {
+  padding: 50px 0;
+  background-color: rgb(23, 48, 60);
+}
+
+.contact-container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-container h2 {
+  font-size: 2.5em;
+  color: #ffffff;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+/* Contact Inner Section */
+.contact-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Contact Image */
+.contact-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Contact Form */
+.contact-form {
+  width: 60%;
+  padding-left: 20px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.contact-form label {
+  font-size: 1.1em;
+  color: #adadad;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.contact-form button {
+  background-color: #234255;
+  color: white;
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.contact-form button:hover {
+  background-color: #0057b338;
+}
+
+.thank-you-message h3 {
+  color: #28a745;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+@media screen and (max-width: 768px) {
+  .service-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}
