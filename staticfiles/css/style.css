@@ -4,8 +4,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body{
   font-family: Arial, sans-serif;
+  overflow: scroll;
+}
+
+html,body{
+  height: 100%;
+  overflow-y: scroll; /* Keeps scrolling enabled */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
 }
 
 header {  
@@ -54,7 +66,7 @@ header {
 
 #home {
   height: 100vh;  /* Make sure it takes full height of the viewport */
-  background-image: url('{% static "css/images/background-image.jpg" %}'); /* Path to your background image */
+  background-image: url('/static/css/images/background-image.jpg');  /* Path to your background image */
   background-size: cover;  /* Make the background image cover the entire section */
   background-position: center center;
   position: relative;  /* Center the background image */
@@ -96,37 +108,39 @@ nav ul li a {
 }
 
 .hero {
-  text-align:left;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: flex-start; /* Aligns content to the left */
+  height: 100vh; /* Full height of viewport */
   padding: 100px 20px;
 }
 
 .hero h1 {
-  text-align:left;
+  text-align: left;
   font-size: 3em;
   margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.hero p {
+  font-size: 1.5em;
+  margin-bottom: 30px; /* Adds spacing below paragraph */
 }
 
 .hero button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: transparent;
   color: white;
   border: 2px solid whitesmoke;
   cursor: pointer;
+  font-size: 1.2em;
 }
 
-/* .service-cards {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
+.hero button:hover {
+  background: whitesmoke; /* Optional: Change background on hover */
+  color: black;
 }
-
-.card {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 5px;
-  width: 30%;
-  text-align: center;
-} */
 
 /* Services Section */
 #services {
@@ -201,11 +215,11 @@ nav ul li a {
 
 /* About Container */
 .about-container {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   background-color: rgb(27,59,73);
   padding: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
 }
 
 /* About Us Heading */
@@ -222,6 +236,7 @@ nav ul li a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: row-reverse;
 }
 
 /* About Us Image */
@@ -229,7 +244,7 @@ nav ul li a {
   width: 100%;
   max-width: 400px;
   height: auto;
-  margin-right: 20px;
+  margin-left: 20px;
 }
 
 /* About Us Content */
@@ -241,7 +256,7 @@ nav ul li a {
   font-size: 1.1em;
   line-height: 1.8;
   margin-bottom: 20px;
-  color: #adadad;
+  color:#d8d8d8;
 }
 
 .about-content h3 {
@@ -301,7 +316,6 @@ nav ul li a {
   width: 100%;
   max-width: 400px;
   height: auto;
-  border-radius: 10px;
 }
 
 /* Contact Form */
@@ -311,20 +325,27 @@ nav ul li a {
 }
 
 .contact-form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: left;
 }
 
 .contact-form label {
   font-size: 1.1em;
-  color: #adadad;
+  color: #d8d8d8;
 }
 
 .contact-form input, .contact-form textarea {
   width: 100%;
   padding: 10px;
-  border-radius: 3px;
-  border: 1px solid #ccc;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  background: rgba(255, 255, 255, 0.15); /* Light text for better visibility */
 }
 
 .contact-form button {
@@ -333,7 +354,7 @@ nav ul li a {
   width: 100%;
   padding: 12px 20px;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 1.1em;
 }
@@ -342,16 +363,109 @@ nav ul li a {
   background-color: #0057b338;
 }
 
-.thank-you-message h3 {
-  color: #28a745;
-  font-size: 1.8em;
+.thank-you-message {
+  text-align: center;
+  font-size: 1.2em;
+  padding: 15px;
+  background-color: rgb(255, 255, 255, 0.15);
+  color: rgb(23, 48, 60);
+  border: 2px solid rgba(255, 255, 255, 0.10);
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* =============== Company Info Section =============== */
+.company-info {
+  background-color: rgb(23, 48, 60, 0.1);
+  padding: 50px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.company-info .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.company-logo {
+  width: 30%;
+}
+
+.company-logo img {
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+.company-logo p {
+  font-size: 14px;
+  color: #333;
+}
+
+.company-links,
+.company-terms,
+.company-contact {
+  width: 20%;
+}
+
+.company-links h3,
+.company-terms h3,
+.company-contact h3 {
+  font-size: 18px;
+  color: rgb(23, 48, 60);
+  margin-bottom: 10px;
+}
+
+.company-links ul,
+.company-terms ul {
+  list-style: none;
+  padding: 0;
+}
+
+.company-links ul li,
+.company-terms ul li {
+  margin-bottom: 8px;
+}
+
+.company-links ul li a,
+.company-terms ul li a {
+  text-decoration: none;
+  color: #333;
+  transition: 0.3s;
+}
+
+.company-links ul li a:hover,
+.company-terms ul li a:hover {
+  color: #082D66;
   font-weight: bold;
 }
 
+.company-contact p {
+  font-size: 14px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  font-size: 20px;
+  color: #333;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #082D66;
+}
 
 footer {
-  background-color: #333;
-  color: white;
+  background-color: white;
+  color:black;
   text-align: center;
   padding: 20px;
 }

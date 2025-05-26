@@ -118,26 +118,39 @@
                   <button type="submit">Submit</button>
               </form>
               
-              {% if message %}
+              <!-- {% if message %}
                 <div id="thankYouMessage" class="thank-you-message" style="display: none;">
                     <h3>{{ message }}</h3>
                 </div>
-              {% endif %}
+              {% endif %} -->
+
+              <div id="thankYouMessage" class="thank-you-message" style="display: none;">
+                <h3>Thank you for reaching out! We'll get back to you soon.</h3>
+              </div>
+            
           </div>
       </div>
   </div>
 </section>  
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contactForm");
-    const thankYouMessage = document.getElementById("thankYouMessage");
+      const form = document.getElementById("contactForm");
+      const thankYouMessage = document.getElementById("thankYouMessage");
 
-    if (thankYouMessage) {
-        setTimeout(function () {
-            thankYouMessage.style.display = "none";
-            form.reset(); // Clear form fields
-        }, 3000);
-    }
+      form.addEventListener("submit", function () {
+          // Hide form instantly
+          form.style.display = "none";
+
+          // Show thank you message instantly
+          thankYouMessage.style.display = "block";
+
+          // After 3 seconds, hide message and show an empty form
+          setTimeout(function () {
+              thankYouMessage.style.display = "none"; // Hide message
+              form.reset(); // Clear form fields
+              form.style.display = "block"; // Show empty form again
+          }, 5000);
+      });
   });
 </script>
 
